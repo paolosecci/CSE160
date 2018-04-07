@@ -1,0 +1,32 @@
+Paolo Secci
+Questions:
+
+1.
+.data is a directive that tells assembler we are in data setting section
+.text is a directive that tells assembler that the following is assembly language instructions
+.word is a directive that tells assembler to store n 32-bit quantities in successive memory words
+
+2.
+to set a breakpoint, check the box next to the preferred line number under Bkpt column
+
+3.
+press the play button in the header (to step through, use play button with 1 next to it)
+
+4.
+we can find the value on the right hand side under registers tab, and we can modify the value of a register by:
+add nameToBeAssigned, $zero, nameToAssign
+-or-
+addi nameToBeAssigned, $zero, int
+
+5.
+$t3
+179
+
+6.
+sys call provides a way to communicate with OS
+to use:
+1. Load the service number in register
+2. Load argument values as specified
+3. Issue the SYSCALL instruction
+4. Retrieve return values, if any, from result registers as specified.
+

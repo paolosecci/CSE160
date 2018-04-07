@@ -1,0 +1,104 @@
+Paolo Secci
+HW5
+
+Problem 1:
+
+2.14
+R-format
+op = 0
+rs = $16
+rt = $16
+rd = $16
+shamt = 0
+funct = 32 = 0x20
+:	add $16, $16, $16
+
+
+2.15
+I-format
+op = 0x2b
+rs = $t1 = $9
+rt = $t2 = $10
+imm = 32 = 0x20
+:	101011.01010.01001.0000000000100000
+
+
+2.16
+op = 0
+rs = 3
+rt = 2
+rd = 3
+shamt = 0
+funct = 34 = 0x22
+R-format
+	oooooo.sssss.ttttt.ddddd.xxxxx.ffffff
+:	000000.00011.00010.00011.00000.100010
+:	sub $3, $3, $2
+
+
+2.17
+I-format
+op = 0x23
+rs = 1
+rt = 2
+imm = 0x4
+	oooooo.sssss.ttttt.iiiiiiiiiiiiiiii
+:	100011.00001.00010.0000000000000100
+:	lw $2, 4($1)
+	
+
+2.34
+int f(int a, int b, int c, int d
+{	return func(	func(a,b),	c+d);}
+legend:
+a = $t0
+b = $t1
+c = $t2
+d = $t3
+e = $t4 = c + d;
+f = $t5 = func(a,b), e
+
+f:	
+
+func:	
+
+end:
+
+
+
+
+
+
+
+
+
+
+2.36-2.42
+
+Problem 2:
+What is Stored Program Concept?/Users/paolosecci/Desktop/CSE31/HW5/HW5.txt
+How would you write self modifying code?
+What is the PC?
+
+Problem 3:
+What is R-format, I-format, and J-format? (give field and bit widths)
+For R-format, how many different instructions can be presented in this one? (hint: func field)
+What can we do to increase the number of possible instructions in R-format?
+
+Problme 4:
+Define absolute addressing versus relative addressing modes.
+What is a word-aligned address and bye-aligned address?
+What is the range for branch instructions? (ie how far can it go from the current PC)
+What is the range for j/jal instructions?
+What is the range for jr instructions?
+How would you jump to an instruction that is 257MB above the current PC? (hint: multiple instructions)
+
+Problem 5
+0x002cff00: loop: addu $t0, $t0, $t0
+0x002cff04: jal foo
+0x002cff08: bne $t0, $zero, loop
+...
+0x00300004: foo: jr $ra
+For each of the 4 instructions, give each field and their corresponding values.
+Also give the binary representation and/or hex of the instruction.
+What instruction is represented by 0x00008A03?

@@ -1,0 +1,21 @@
+//Paolo Secci
+
+Q1. 
+Line 6: Stack
+Line 7: Stack
+Line 8: Stack
+Line 10: Stack
+Line 11: Heap
+Line 12: Stack
+Line 13: Heap
+Line 14: Stack
+Line 15: Heap
+
+Q2.
+no memory is free, it’s located through malloc().
+
+Q3.
+heap memory
+
+Q4.
+14 results is same leak of memory

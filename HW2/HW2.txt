@@ -1,0 +1,115 @@
+Paolo Secci
+HW2
+
+
+PROBLEM 1
+a.
+binary		unsigned	signed		1’s comp	2’s comp	biased
+0000 1111	15		15		15		15		-112
+0101 0101	85		85		85		85		-42
+1010 1010	170		-86		-85		-86		43
+1111 1111	255		-1		0		-1		128
+
+b.
+property	unsigned	signed		1’s comp	2’s comp	biased
+can rep +#s	T		T		T		T		T
+can rep -#s	F		T		T		T		T
+multiple 0s	F		T		T		F		F
+unsigned add	T		F		T		T		F
+
+c.
+1000 0000 0000 0000
+-(2^15)
+-32768
+
+d.
+0111 1111 1111 1111
+(2^15)-1
+32767
+
+
+PROBLEM 2
+char **copyStrArray (int count, char **strArray)
+{
+	char **copy;
+	char **temp;
+	int k;
+ 	copy = (char**) malloc (count*sizeof(char*+1));
+    	temp = copy;
+
+      	for (k = 0; k < count; k++)
+	{
+   	 	*temp = (char*) malloc ((strlen(*strArray)+1)*sizeof(char));
+		strcpy (*temp, strArray);
+		temp++; 
+		strArray++;
+	}
+return copy;
+}
+
+
+PROBLEM 3
+a.
+char* upcase(char* str)
+{
+	char* p;
+	char* result;
+
+	result = (char*) 
+	malloc(sizeof(char)*(count+1));
+
+	strcpy(result, str);
+
+	for(p = result; *p != ’\0’; p++ )
+	{ 
+		if (*p >= ‘a’ && *p <= ‘z’)
+		{
+			*p += ‘A’ – ‘a’;
+		}
+		return result;
+	}
+
+b.
+void upcase_by_ref( char** n )
+{
+	*n = upcase (*n);
+}
+void upcase_name(char* names[], int i)
+{
+	upcase_by_ref( &(names[i]) );
+}
+
+
+PROBLEM 4
+a.
+#define MAX_NAME_LEN 128
+
+		//construct for Student
+typedef struct 
+{
+	char name[MAX_NAME_LEN];
+	unsigned long sid;
+} Student;
+		//return name
+const char* getName(const Student* s)
+{
+	return s->name;
+}
+		//set name
+void setName(Student* s, const char* name)
+{
+	s->name = name;  
+}
+		//return SID
+unsigned long getStudentID(const Student* s)
+{
+	return s->sid;
+}
+		//set SID
+void setStudentID(Student* s, unsigned long sid)
+{
+	s->sid = sid;
+}
+
+b.
+The variable s is local because it’s declared in the function. So when the function is done, s will be gone. We can use malloc to declare s properly.

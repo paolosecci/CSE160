@@ -1,0 +1,92 @@
+Paolo Secci
+HW3
+
+#1)
+2.1—
+add $t0, $s2, -5;
+add $s0, $s1, $t0;
+
+2.2—
+f = g + h;
+f += i;
+-or-
+f = i + g + h;
+
+2.3—
+sub $s5, $s3, $s4;
+lw $t0, $s5($s6);
+sw $t0, 32($s7);
+
+2.4—
+$t0 points to next spot in array;
+b[f] = a[f] + f;
+
+2.5—
+sll $t0, $s0, 2add $t0, $s6, $t0sll $t1, $s1, 2add $t1, $s7, $t1lw $s0, 0($t0)
+addi $t2, $t0, 4lw $t0, 0($t2)add $t0, $t0, $s0
+sw $t0, 0($t1)
+
+2.6.1—
+for (int i = 0; i < arr.length()-1; i++)
+{
+	int min = arr[i];
+	for (int j = i; j < arr.length()-1; j++)
+	{
+		if (arr[j] < min)
+		{
+			min = arr[j];
+			int spot = j;
+		}
+		
+		arr[j] = arr[i];
+		arr[i] = min;
+	}
+}
+
+2.6.2—
+lw $t0, 16($s6)
+lw $t1, 0($s6)
+lw $t2, 8($s6)
+lw $t3, 4($s6)
+lw $t4, 12($s6)
+
+2.9—
+sll $s3, 2;
+sll $s4, 2;
+lw $t1, $s3($s6);
+lw $t2, $s4($s6);
+add $t0, $t1, $t2;
+sw $t0, 32($s7);
+
+2.10—
+f = 2 * a[0];
+
+2.12—
+.1—
+0x60000000
+.2—
+overflow
+.3—
+0x50000000
+.4—
+overflow
+.5—
+0xE0000000
+.6—
+overflow
+
+2.13—
+.1—
+0xA0111111 to infinity
+.2—
+0xE1111111 to infinity
+.3—
+0xF0111111 to infinity
+
+#2)
+ori $t1, $t0, 25;
+lw $t2, 20($t3);
+addiu $t4, $t0, $t2;
+sw $t4, 16($t3);
+
+

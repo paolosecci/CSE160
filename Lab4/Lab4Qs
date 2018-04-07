@@ -1,0 +1,7 @@
+Q1. There is not enough space in hello[] to store world[] as well
+Q2. Set hello[] to a given size before assigning it (i.e. hello[16])
+Q3. 	gdb executable
+	r
+Q4. C expects the programmer to be an expert
+    pros: we can keep track of memory being used easily
+    cons: may use more memory

@@ -1,0 +1,21 @@
+Paolo Secci
+HW7
+
+Problem 1:
+AddressBits	CacheSize	BlockSize	Associativity	TagBits		IndexBits	OffsetBits	BitsPerRow
+16 		4KB 		4B 		1
+16 		16KB 		8B 		2
+16 		32KB 		8B 		4
+16 						2 				8 		2
+32 		8KB 		8B 		1024
+32 		32KB 		16B 		2
+32 		64KB 						16 		12 		4 		146
+32 		512KB 				4 				10
+64 		512KB 				2 						8
+64 								26 				8
+64 		2MB 												1069
+
+
+
+
+Problem 2:

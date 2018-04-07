@@ -1,0 +1,14 @@
+Paolo Secci
+CSE31
+
+1--
+1.0 * 2^25 = 0x2000000
+
+2--
+1.0 * 2^24 = 0x4b800000
+
+3--
+(0.001 + 1) - 1 != 0.001 + (1-1)
+
+4--
+based on 3, they do not obey associativity.

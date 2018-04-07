@@ -1,0 +1,60 @@
+Paolo Secci
+Homework 1
+
+1)
+a -248
+b -65
+c 32735
+d 21845
+
+2)
+a 65290
+b -32735
+c 32735
+d 43690
+
+3)
+a 0111, 1111
+b 01111111, 11111111
+c 00000000, 11111111
+
+4)
+int bitCount(unsigned x)
+{
+	int b;
+	for (b = 0; x != 0; x >>= 1)
+        {
+	    if (x & 01)
+            {
+		b++;
+	    }
+	}
+    	return b;
+}
+
+5)
+#include <stdio.h>
+#include <atoi.h>
+
+int main (unsigned x)
+{
+	printf ("# 1-bits in base 2 representation of %u = %d, should be 0\n",
+		0, bitCount (0));
+	printf ("# 1-bits in base 2 representation of %u = %d, should be 1\n",
+		1, bitCount (1));
+	printf ("# 1-bits in base 2 representation of %u = %d, should be 16\n",
+		2863311530u, bitCount (2863311530u));
+	printf ("# 1-bits in base 2 representation of %u = %d, should be 1\n",
+		536870912, bitCount (536870912));
+	printf ("# 1-bits in base 2 representation of %u = %d, should be 32\n",
+		4294967295u, bitCount (4294967295u));
+	int b;
+    	for (b = 0; x != 0; x >>= 1)
+       {
+		if (x & 01)
+		{
+        	   b++;
+		}
+	}
+    	return b;
+}

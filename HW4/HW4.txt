@@ -1,0 +1,169 @@
+Paolo Secci
+HW4
+p. 168
+
+PROBLEM 1
+#2.19
+.1
+$t0 = 0xAAAAAAAA
+$t1 = 0x12345678
+sll $t2, $t0, 4	$t2 = 0xAAAAAAA0
+$t2, $t2, $t1
+$t2 = 0xBABEFEF8
+
+.2
+sll $t2, $t0, 4:  $t2 = 0xAAAAAAA0 
+andi $t2, $t2, -1: $t2 = AAAAAAA0
+
+.3
+srl $t2, $t0, 3: $t2 = 15555555
+andi $t2, $t2, 0xFFEF: 0000(15)(15)(14)(15) = 00000000000000001111111111101111
+0001010101010101010101010101010 = 1AAAAAAA
+t2 = 0000AAAA
+
+#2.20
+andi  	$t0, $t0, 0xFC00
+sll	$t0, $t0, 15 
+lui   	$t2, 0x81FF
+ori   	$t2, 0xFFFF
+add    	$t2, $t0
+andi   	$t1, $t1, $t2
+ori 	$t1, $t1, $t0
+
+#2.22
+lw $t1, 0 ($s1)
+sll  $t1, $t1, 4
+
+#2.23
+slt $t2, $0, $t0
+bne $t2, $0, ELSE
+j DONE
+ELSE:
+addi $t2, $t2, 2
+DONE:
+Result: t2 = 3
+
+#2.26
+Loop:
+slt   $t2, $0, $t1
+beq $t2, $t0, DONE
+subi $t1, $t1, 1
+addi $s2, $s2, 2
+j LOOP
+
+.1
+$s2 == 20 because it activates until t1 = 0, t2=0 and beq ends
+
+.2
+while()
+{
+	if (i > 0)
+	{
+		temp = 0;
+	}
+	else
+ 	{
+		temp = 0;
+	}
+
+	if (temp = 0)
+	{
+		break;
+	}
+	i --;
+	B = B + 2;
+}
+
+.3
+If (N < 0), command executes
+If (N > 0), (5N + 2) command executes 
+
+#2.27
+C++: 
+for (i = 0; i < a; i++)
+{
+	for(j = 0; j < b; j++)
+	{
+		D[4*j] = i + j;
+	}
+}
+
+MIPS:
+add $t0, $0, $0	
+LOOP 1:
+slt: $t2, $t0, $s0
+ beq $t2, $0, ENDL1
+add $t1, $0, $0
+LOOP 2:
+slt $t2, $t1, $s1
+beq $t2, $0, ENDL2
+add $t2, $t1, $t0
+add $t3, $t1, $0
+sll $t3, $t3, 2	
+add $t4, $t3, $s2
+sw $t2, 0($t4)
+addi $t1, $t1,1	
+j LOOP 2
+ENDL2:
+addi $t0, $t0,1	
+j LOOP 1
+ENDL1: 
+
+#2.28
+10 x 1 x 2 Loops 
+10 x 2 = 1 +10(5) + 2 + 10(9) + 20 = 163 instructions
+
+#2.29
+MIPS:
+addi $t1, $0, $0
+LOOP: 
+lw $s1, 0($s0)
+add $s2, $s2, $s1
+addi $s0, $s0, 4
+addi $t1, $t1, 1
+slti    $t2, $t1, 100
+bne $t2, $0, LOOP
+
+C++:
+for (int i = 0; i < 100, i++) 
+{
+	result += MemArray[i];
+}
+
+#2.30
+Addi $t1, $0, $0 
+Loop:
+lw $s1, 0($s0)
+add $s2, $s2, $s1
+addi $s0, $s0, 4
+addi $t1, $t1, 1
+slti $t2, $t1, 100
+bne $t2, $0, LOOP 
+
+PROBLEM 2
+MIPS:
+addi $t1, $zero, 31
+addi $t0, $zero, 31
+loop:
+srlv $t3, $a0, $t1
+andi $t3, $t3, 1
+addi $t3, $t3, 48	
+sub $t4, $t0, $t1	
+add $t2, $a1, $t4
+sb $t3, 0($t2)
+beq $t1, $zero, done
+addi $t1, $t1, -1	
+j loop
+done:
+sb $zero, 1($t2)
+jr $ra
+
+C++:
+For (t1 = 31; i > 0; i—-)
+{
+	a1 = a0;
+	a1 >> i;
+	a1 = a1%2
+	A[31-i] = 48 +a1
+}
+A[32] = 0;

@@ -1,0 +1,18 @@
+Paolo Secci
+
+1. r
+2. int argc, string argv[]
+3. b program.c:17 (if program called "program.c" and line 17)
+4. b if(x=1)
+5. n
+6. b main (if fuction is called "main")
+7. c
+8. p num (if trying to see value of num)
+9. display num (if trying to see value of num)
+10. info locals
+11. q
+
+12. the bug is that the strings are set to x characters at the beginning
+13. main’s first line
+14. define the size according to your strlen variables
+15. the bug was in the scanning and implementation of counting the input

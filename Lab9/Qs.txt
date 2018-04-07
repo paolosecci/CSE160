@@ -1,0 +1,43 @@
+Paolo Secci
+Lab 9 Questions
+
+1.	in terms of characters being printed out, -1 and 1 are not related at all in 	the ascii table (we take 256-1 and subtract 1 to get the ascii number 		equivalent to -1)
+
+2.	absolute value
+
+3.	mystery( a0 )
+	{
+		if(a0 < 0)		//negative
+		{
+			t5 = -1 * a0;
+			a0 = “-“;
+			return 11;
+			a0 = t5;
+		}
+
+					//call
+		divisor = 10;
+		count = 0;
+
+		while(a0 != 0)		//loop
+		{
+			hi = a0%t0;3
+			lo = a0/t0;0
+			stackspot = hi; 2
+			count++;1
+			a0 = lo;
+		}
+
+		while(count != 0)	//print
+		{
+			t3 = stackspot;
+			a0 = “0”;
+			a0 += t3;
+			return 11;
+			count- -;
+		}
+	}
+
+4.	mystery(7) => 07
+
+5.	mystery(32) => 0302

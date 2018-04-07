@@ -1,0 +1,93 @@
+Paolo Secci
+
+#1.
+a.
+1	1	1
+3	11	0x3
+101	1100101	0x65
+18	10010	0x12
+51539	1100100101010011	0xC953
+131071	11111111111111111	0x1FFFF
+
+b.
+binary		unsigned	signed		1’s comp	2’s comp	biased
+00001111	15		15		15		15		-112
+
+10101010	170		-42		-85		-86		127
+
+c.
+property	unsigned	signed		1’s comp	2’s comp	biased
++#s?		T		T		T		T		T
+-#s?		F		T		T		T		T
+multiple0s	F		T		T		F		F
+reg addition	T		F		F		T		T
+
+d.
+-32,768
+
+e.
+32,767
+
+#2.
+a.
+00000010
+
+b.
+01010101
+
+c.
+strlen(str)+1
+result, str
+if (*p >= ‘a’ && *p <= ‘z’)
+{
+	*p += ‘A’ – ‘a’;
+}
+
+d.
+*n = upcase(*n);
+
+#3.
+addi:
+opcode=	8
+Rs=	1
+Rt=	1
+Imm=	-1
+binary—	0010 0000 0010 0001 1111 1111 1111 1111
+hex—	0x2021FFFF
+
+beq:
+opcode=	4
+Rs=	1
+Rt=	0
+Imm=	1
+binary—	0001 0000 0010 0000 0000 0000 0000 0001
+hex—	0x10200001
+
+j:
+opcode=	2
+Imm=	000003
+binary—	0000 1000 0000 0000 0000 0000 0000 0011
+hex—	0x08000003
+
+#4.
+a.
+sll $v0, $t0, 8
+add $v0, $v0, $t0
+
+b.
+add $v0 $v0, $a0 #fillMeIn1
+sll $a0, $a0, 1  #fillMeIn2
+
+c.
+bitcount:	bed	$a0, $0, done
+		andi	$t0, $a0, 1
+		srl	$a0, $a0, 1
+		addi	$sp, $sp, -4
+		sw	$ra, 4($sp)
+		sw	$t0, 0($sp)
+		jal	bitcount
+		lw	$ra, 4($sp)
+		lw	$t0, 0($sp)
+		add	$v0, $t0, $v0
+		jr	$ra
+done:
